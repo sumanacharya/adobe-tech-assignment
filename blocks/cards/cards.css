@@ -1,27 +1,78 @@
-.cards > ul {
+.cards__link {
+  text-decoration: underline;
+}
+
+.cards__list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns:  1fr;
+  gap: 32px;
 }
 
-.cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+
+.cards__item {
+  background-color: var(--background-light-color);
+  border-radius: 4px;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
+.cards__item:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: transparent;
 }
 
-.cards .cards-card-image {
+.cards__item:hover .cards__link {
+  color: white;
+}
+
+.cards__body {
+  padding: 16px;
+  transition: background .15s ease-in-out,border .15s ease-in-out;
+}
+
+.cards__image {
   line-height: 0;
+  height: 200px;
+  min-height: 200px;
 }
 
-.cards > ul > li img {
+.cards__image img {
   width: 100%;
+  height: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  border-radius: 4px 4px 0 0;
+}
+
+.cards-container .default-content-wrapper{
+  padding-bottom: 32px;
+}
+
+.cards__icon {
+  font-size: 30px;
+  margin-top: 16px;
+  color: var(--primary-color);
+}
+.cards__item:hover .cards__icon { color: #fff; }
+
+@media (min-width: 768px) {
+  .cards__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .cards__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cards__body {
+    padding: 32px;
+  }
+
+  .cards__icon {
+    margin-top: 16px;
+  }
 }

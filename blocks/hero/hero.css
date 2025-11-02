@@ -1,37 +1,106 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
-
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  width: 100vw; 
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  overflow: visible; 
+  padding-bottom: var(--hero-overlap, 0px);
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+.hero__image {
+  position: relative;
+  z-index: 1;
+  height: 322px; 
 }
 
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
+.hero__image picture,
+.hero__image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.hero__content {
+  position: absolute;
+  z-index: 2;
+  bottom: var(--hero-overlap, 0px);
+  transform: translateY(50%);
+  width: 100%;
+  padding: 0 32px;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.hero__card {
+  background-color: var(--background-light-color);
+  border-radius: 4px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgb(10 10 10 / 15%);
+  color: var(--text-color);
+  border-top: 4px solid var(--primary-color);
+
 }
 
-@media (width >= 900px) {
+.hero__body {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.hero__cta { 
+  margin-top: 16px; 
+  line-height: 16px; 
+}
+
+.hero .hero__cta .hero-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--text-light-color);
+  padding: 12px 24px;
+  border-radius: 4px;
+}
+
+.hero .hero__cta .hero-button:hover {
+  background-color: var(--link-color);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
+}
+
+
+@media (min-width: 992px) {
   .hero {
-    padding: 40px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 456px;
+    padding-bottom: 0;
+  }
+  .hero__image {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    height: 100%;
+    z-index: 1;
+  }
+  .hero__content {
+    position: relative;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    max-width: 568px;
+    transform: none;
+    bottom: auto;
+    margin: 0;
+    padding: 0 32px;
+    z-index: 2;
+  }
+
+  .hero__card {
+    box-shadow: 0 4px 16px rgb(0 0 0 / 15%);
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero__content {
+    padding: 0;
   }
 }
