@@ -4,7 +4,7 @@
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   overflow: visible; 
-  padding-bottom: var(--hero-overlap, 0px);
+  padding-bottom: var(--hero-overlap, 0);
 }
 
 .hero__image {
@@ -24,7 +24,7 @@
 .hero__content {
   position: absolute;
   z-index: 2;
-  bottom: var(--hero-overlap, 0px);
+  bottom: var(--hero-overlap, 0);
   transform: translateY(50%);
   width: 100%;
   padding: 0 32px;
@@ -64,23 +64,25 @@
 
 .hero .hero__cta .hero-button:hover {
   background-color: var(--link-color);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
+  background-image: linear-gradient(rgb(255 255 255 / 15%), rgb(255 255 255 / 15%));
 }
 
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
   .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 456px;
     padding-bottom: 0;
   }
+
   .hero__image {
     grid-column: 1 / -1;
     grid-row: 1;
     height: 100%;
     z-index: 1;
   }
+
   .hero__content {
     position: relative;
     grid-column: 2;
@@ -99,7 +101,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .hero__content {
     padding: 0;
   }

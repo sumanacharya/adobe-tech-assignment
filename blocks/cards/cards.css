@@ -19,12 +19,12 @@
 
 .cards__item:hover {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--text-light-color);
   border-color: transparent;
 }
 
 .cards__item:hover .cards__link {
-  color: white;
+  color: var(--text-light-color);
 }
 
 .cards__body {
@@ -55,15 +55,15 @@
   margin-top: 16px;
   color: var(--primary-color);
 }
-.cards__item:hover .cards__icon { color: #fff; }
+.cards__item:hover .cards__icon { color: var(--icon-light-color) }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .cards__list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
   .cards__list {
     grid-template-columns: repeat(3, 1fr);
   }

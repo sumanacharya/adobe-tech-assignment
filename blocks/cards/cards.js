@@ -19,7 +19,7 @@ export default function decorate(block) {
     const altText = img.getAttribute('alt') ?? 'Card image';
     picture.replaceWith(createOptimizedPicture(img.src, altText, false, [{ width: '750' }]));
   });
-  
+
   /* icon */
   ul.querySelectorAll('.cards__body').forEach((body) => {
     const link = body.querySelector('a');
